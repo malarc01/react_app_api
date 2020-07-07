@@ -1,11 +1,13 @@
 import React from 'react'
 
 
-const CharacterGrid = () => {
+const CharacterGrid = ({ items, isLoading }) => {
   return (
-    <div>
-
-    </div>
+    isLoading ? (<h1>Loading ...</h1>) : (<section className="cards">
+      {items.map(item => (
+        <h1>{item.name}</h1>
+      ))}
+    </section>)
   )
 }
 

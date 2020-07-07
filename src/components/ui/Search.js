@@ -1,8 +1,12 @@
 import React, { useState } from 'react'
 
-const Search = () => {
+const Search = ({ getQuery }) => {
 
   const [text, setText] = useState('')
+  const onChange = q => {
+    setText(q)
+    getQuery(q)
+  }
 
   return (
     <section className='search'>
@@ -12,7 +16,7 @@ const Search = () => {
           className='form-control'
           placeholder='Search characters'
           value={text}
-          onChange={(event) => setText(event.target.value)} />
+          onChange={(event) => onChange(event.target.value)} />
       </form>
     </section>
   )
